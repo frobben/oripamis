@@ -74,3 +74,69 @@ nav > div a.nav-item.nav-link:focus {
     line-height: 1.9;
     font-weight: 400;
 }
+
+.page-title h1 {
+    text-align: center;
+    padding: 0 0 5rem 0;
+}
+
+.presentation {
+    position: relative;
+    text-align: center;
+}
+
+.presentation img {
+    width: 100%;
+}
+
+.presentation-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(60, 60, 60, 0.7);
+    padding: 3rem;
+}
+
+.presentation-text p {
+    color: #ffffff;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+}
+
+.img-left {
+    flex-direction: row;
+}
+
+.img-right {
+    flex-direction: row-reverse;
+}
+
+.partenaire-row div {
+    width: 50%;
+    position: relative;
+}
+
+.partenaire-img h2 {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.partenaire-description {
+    padding: 5rem;
+}
+
+.partenaire-description p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
