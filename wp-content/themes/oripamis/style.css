@@ -1,0 +1,76 @@
+/*   
+Theme Name: Oripamis
+Description: Oripamis Template
+Author: Francois Robben
+Version: 1.0
+*/
+
+
+nav > .nav.nav-tabs {
+
+    border: none;
+    color: #fff;
+    background: #131212;
+    border-radius: 0;
+
+}
+
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active {
+    border: none;
+    padding: 18px 25px;
+    color: #fff;
+    background: #131212;
+    border-radius: 0;
+}
+
+nav > div a.nav-item.nav-link.active:after {
+    content: "";
+    position: relative;
+    bottom: -60px;
+    left: -10%;
+    border: 15px solid transparent;
+    border-top-color: #fbb710;
+}
+
+.tab-content {
+    background: #fdfdfd;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    border-top: 5px solid #fbb710;
+    border-bottom: 5px solid #fbb710;
+    padding: 30px 25px;
+}
+
+.tab-pane {
+    padding: 25px;
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus {
+    border: none;
+    background: #fbb710;
+    color: #fff;
+    border-radius: 0;
+    transition: background 0.20s linear;
+}
+
+.related.products {
+    margin-top: 20px;
+}
+
+.shop_sidebar_area .cat-item a {
+    text-transform: capitalize;
+    font-size: 16px;
+    padding: 15px 0 15px 20px;
+    display: block;
+    font-weight: 400;
+    color: #959595;
+}
+
+.added_to_cart.wc-forward {
+    color: #6d6d6d;
+    font-size: 16px;
+    line-height: 1.9;
+    font-weight: 400;
+}
