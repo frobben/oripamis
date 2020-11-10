@@ -31,6 +31,7 @@ function oripamis_add_theme_scripts()
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), 1.1, true);
     wp_enqueue_script('plugins', get_template_directory_uri() . '/assets/js/plugins.js', array('jquery'), 1.1, true);
     wp_enqueue_script('active', get_template_directory_uri() . '/assets/js/active.js', array('jquery'), 1.1, true);
+    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), 1.1, true);
 
 
 }
@@ -69,9 +70,27 @@ function oripamis_widget_setup()
     register_sidebar(array(
         'name' => 'OripamisShopSideBar',
         'id' => 'shop-sidebar',
-        'before_widget' => '<div class = "shop_sidebar_area">',
+        'before_widget' => '<div>',
         'after_widget' => '</div>',
-        'before_title' => '<h6 class="widget-title mb-30">',
+        'before_title' => '<h6>',
+        'after_title' => '</h6>',
+    ));
+
+    register_sidebar(array(
+        'name' => 'OripamisMenuWidget',
+        'id' => 'menu-sidebar',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h6 class="widget-title mb-15">',
+        'after_title' => '</h6>',
+    ));
+
+    register_sidebar(array(
+        'name' => 'OripamisCartWidget',
+        'id' => 'cart-sidebar',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h6 class="widget-title mb-15">',
         'after_title' => '</h6>',
     ));
 }
@@ -103,3 +122,5 @@ function oripamis_template_loop_product_link_close()
 {
     echo '</a>';
 }
+
+add_filter('woocommerce_layered_nav_count', '__return_false');

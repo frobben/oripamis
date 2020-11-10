@@ -140,3 +140,143 @@ nav > div a.nav-item.nav-link:focus {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.shop_sidebar_area a {
+    text-transform: capitalize;
+    font-size: 16px;
+    padding: 15px 0 15px 20px;
+    display: block;
+    font-weight: 400;
+    color: #959595;
+}
+
+.shop_sidebar_area > div {
+    padding-bottom: 1rem;
+}
+
+.woo-clear-filters {
+    color: #0b0b0b;
+    padding-left: 0;
+}
+
+#openCartButton {
+    padding: 1rem;
+    position: fixed;
+    z-index: 99999;
+    right: 0;
+    top: 2rem;
+    border: 2px solid #fbb710;
+}
+
+#openCartButton:hover {
+    background-color: #fbb710;
+    border-color: #b5a57c;
+}
+
+.sidenav {
+    height: 100%;
+    min-height: 100vh;
+    min-width: 20rem;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    border-left: 1px solid #959595;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    padding: 1rem;
+    padding-top: 60px;
+    transform: translateX(100%);
+    transition: 0.5s;
+}
+
+.sidenav.open {
+    transform: translateX(0);
+}
+
+.sidenav .mini_cart_item {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #b5a57c;
+}
+
+.sidenav .mini_cart_item img {
+    width: 100px;
+    margin-right: .5rem;
+}
+
+.sidenav .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.sidenav .button {
+    display: block;
+}
+
+.sidenav .mini_cart_item .quantity {
+    align-self: flex-end;
+}
+
+table {
+    table-layout: auto;
+}
+
+
+.main-content-wrapper .cart-table-area table thead tr,
+.main-content-wrapper .cart-table-area table tbody tr {
+    display: table;
+    vertical-align: middle;
+}
+
+.main-content-wrapper .cart-table-area table thead tr th:first-child,
+.main-content-wrapper .cart-table-area table tbody tr td:first-child {
+    width: min-content;
+}
+
+.main-content-wrapper .cart-table-area table tbody tr td {
+    vertical-align: inherit;
+}
+
+.qty-minus input,
+.qty-plus input {
+    display: none;
+}
+
+/*.quantity input{*/
+/*    -webkit-appearance: none;*/
+/*    -moz-appearance: textfield;*/
+/*    margin: 0;*/
+/*}*/
+
+.product-quantity > div > p {
+    margin-right: 1rem;
+}
+
+.product-quantity > div {
+    margin-bottom: 0 !important;
+}
+
+.actions {
+    text-align: right;
+}
+
+.actions > div {
+    padding-bottom: 1rem;
+}
+
+footer {
+    width: 100%;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}

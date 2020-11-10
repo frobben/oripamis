@@ -40,6 +40,22 @@
 </div>
 <!-- Search Wrapper Area End -->
 
+<!-- Cart Widget -->
+
+<div id="side-cart" class="sidenav">
+    <div>
+        <? if (is_active_sidebar('cart-sidebar')): ?>
+            <div class="shop_sidebar_area">
+                <? dynamic_sidebar('cart-sidebar'); ?>
+            </div>
+        <? endif ?>
+    </div>
+</div>
+<span id="openCartButton" onclick="handleCart()"><img alt="Ouvrir le panier"
+                                                      src="<?= get_template_directory_uri() ?>/assets/img/core-img/cart.png"></span>
+
+<!-- Cart Widget end -->
+
 <!-- ##### Main Content Wrapper Start ##### -->
 <div class="main-content-wrapper d-flex clearfix">
 
@@ -47,7 +63,7 @@
     <div class="mobile-nav">
         <!-- Navbar Brand -->
         <div class="amado-navbar-brand">
-            <a href="index.html"><img src="https://colorlib.com/preview/theme/amado/img/core-img/logo.png" alt=""></a>
+            <a href="<? home_url(); ?>"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.jpg" alt=""></a>
         </div>
         <!-- Navbar Toggler -->
         <div class="amado-navbar-toggler">
@@ -63,7 +79,7 @@
         </div>
         <!-- Logo -->
         <div class="logo">
-            <a href="index.html"><img src="https://colorlib.com/preview/theme/amado/img/core-img/logo.png" alt=""></a>
+            <a href="<? home_url(); ?>"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.jpg" alt=""></a>
         </div>
         <!-- Amado Nav -->
         <?
@@ -74,31 +90,35 @@
         ?>
 
         <!-- Button Group -->
-        <div class="amado-btn-group mt-30 mb-100">
-            <a href="#" class="btn amado-btn mb-15">%Discount%</a>
-            <a href="#" class="btn amado-btn active">New this week</a>
-        </div>
+        <!--        <div class="amado-btn-group mt-30 mb-100">-->
+        <!--            <a href="#" class="btn amado-btn mb-15">%Discount%</a>-->
+        <!--            <a href="#" class="btn amado-btn active">New this week</a>-->
+        <!--        </div>-->
         <!-- Cart Menu -->
         <div class="cart-fav-search mb-100">
-            <a href="cart.html" class="cart-nav"><img
-                        src="https://colorlib.com/preview/theme/amado/img/core-img/cart.png" alt=""> Cart
-                <span>(0)</span></a>
-            <a href="#" class="fav-nav"><img src="https://colorlib.com/preview/theme/amado/img/core-img/favorites.png"
-                                             alt=""> Favourite</a>
-            <a href="#" class="search-nav"><img src="https://colorlib.com/preview/theme/amado/img/core-img/search.png"
-                                                alt=""> Search</a>
+            <? if (is_active_sidebar('menu-sidebar')): ?>
+                <div class="shop_sidebar_area">
+                    <? dynamic_sidebar('menu-sidebar'); ?>
+                </div>
+            <? endif ?>
         </div>
         <!-- Social Button -->
         <div class="social-info d-flex justify-content-between">
-            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+            <!--            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>-->
             <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <!--            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
         </div>
     </header>
     <!-- Header Area End -->
-<?
-if (is_active_sidebar('shop-sidebar')) {
-    dynamic_sidebar('shop-sidebar');
-}
-?>
+    <? if (is_active_sidebar('shop-sidebar')): ?>
+    <div class="shop_sidebar_area">
+        <? dynamic_sidebar('shop-sidebar'); ?>
+        <?php $filterreset = $_SERVER['REQUEST_URI'];
+        if (strpos($filterreset, '?filter_') !== false | strpos($filterreset, '?min_price') !== false | strpos($filterreset, '?max_price')) {
+            $filterreset = strtok($filterreset, '?');
+            echo '<div class="clear-filters-container"><a id="woo-clear-filters" href="' . $filterreset . '">Montrer tout</a></div>';
+        } ?>
+    </div>
+
+<? endif ?>
