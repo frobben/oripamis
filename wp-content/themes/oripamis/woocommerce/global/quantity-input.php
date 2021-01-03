@@ -28,31 +28,9 @@ if ($max_value && $min_value === $max_value) {
     /* translators: %s: Quantity. */
     $label = !empty($args['product_name']) ? sprintf(esc_html__('%s quantity', 'woocommerce'), wp_strip_all_tags($args['product_name'])) : esc_html__('Quantity', 'woocommerce');
     ?>
-    <div class="cart-btn d-flex mb-50">
-        <p><?= ucfirst('Quantité') ?></p>
-        <?php do_action('woocommerce_before_quantity_input_field'); ?>
-        <div class="quantity">
-            <span class="qty-minus"
-                  onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) effect.value--;return false;"><i
-                        class="fa fa-caret-down" aria-hidden="true"></i></span>
+    <span>
+        <bdi><?= $input_value ?></bdi>
+    </span>
 
-            <input
-                    type="number"
-                    id="qty"
-                    class="<?php echo esc_attr(join(' ', (array)$classes)); ?>"
-                    step="1"
-                    min="<?php echo esc_attr($min_value); ?>"
-                    max="<?php echo esc_attr(0 < $max_value ? $max_value : ''); ?>"
-                    name="quantity"
-                    value="<?php echo esc_attr($input_value); ?>"
-                    title="<?php echo esc_attr_x('Qty', 'Product quantity input tooltip', 'woocommerce'); ?>"
-                    placeholder="<?php echo esc_attr($placeholder); ?>"
-                    inputmode="<?php echo esc_attr($inputmode); ?>"/>
-            <span class="qty-plus"
-                  onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
-                        class="fa fa-caret-up" aria-hidden="true"></i></span>
-        </div>
-        <?php do_action('woocommerce_after_quantity_input_field'); ?>
-    </div>
     <?php
 }

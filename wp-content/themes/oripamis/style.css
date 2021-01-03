@@ -83,6 +83,10 @@ nav > div a.nav-item.nav-link:focus {
 .presentation {
     position: relative;
     text-align: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1rem .2rem;
 }
 
 .presentation img {
@@ -90,10 +94,11 @@ nav > div a.nav-item.nav-link:focus {
 }
 
 .presentation-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+    margin: 2rem;
     background-color: rgba(60, 60, 60, 0.7);
     padding: 3rem;
 }
@@ -164,7 +169,7 @@ nav > div a.nav-item.nav-link:focus {
     position: fixed;
     z-index: 99999;
     right: 0;
-    top: 2rem;
+    top: 10rem;
     border: 2px solid #fbb710;
 }
 
@@ -178,7 +183,7 @@ nav > div a.nav-item.nav-link:focus {
     min-height: 100vh;
     min-width: 20rem;
     position: fixed;
-    z-index: 999;
+    z-index: 9999999;
     top: 0;
     right: 0;
     border-left: 1px solid #959595;
@@ -270,6 +275,18 @@ footer {
     width: 100%;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {
@@ -278,5 +295,115 @@ footer {
 
     .sidenav a {
         font-size: 18px;
+    }
+}
+
+.woocommerce table.shop_table {
+    border-radius: 0;
+}
+
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
+    border-radius: 0;
+}
+
+.checkout.woocommerce-checkout .col-1,
+.checkout.woocommerce-checkout .col-2 {
+    max-width: none;
+}
+
+.woocommerce form .form-row {
+    display: flex;
+    justify-content: right;
+}
+
+.notes {
+    justify-content: left !important;
+}
+
+.notes .woocommerce-input-wrapper {
+    width: 100%;
+    margin-left: 0;
+}
+
+.woocommerce-input-wrapper {
+    margin-left: 5px;
+}
+
+#order_comments {
+    width: 100%;
+}
+
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+    background-color: #fbb710;
+}
+
+.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
+    background-color: #111111;
+}
+
+.social-info {
+    justify-content: space-evenly;
+}
+
+.woocommerce table.shop_table td a,
+.woocommerce table.shop_table td span bdi {
+    color: #111111;
+    font-size: 1rem;
+}
+
+.footer_menu ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.footer_menu ul li a {
+    color: #fbb710;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.woocommerce-billing-fields__field-wrapper {
+    overflow: hidden;
+}
+
+#closeCart {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+@media screen and (min-width: 900px) {
+
+    .presentation-text {
+        max-width: 60%;
+        margin: 2rem auto;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .img-left, .img-right {
+        flex-direction: column;
+    }
+
+    .partenaire-row {
+        margin: auto;
+    }
+
+    .partenaire-row div {
+        width: 100%;
+        text-align: justify;
+    }
+
+    .partenaire-description p {
+        position: static;
+        transform: none;
+    }
+
+    .partenaire-description {
+        padding: 1rem;
     }
 }

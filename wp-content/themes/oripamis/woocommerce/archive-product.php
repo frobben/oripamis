@@ -40,7 +40,16 @@ do_action('woocommerce_before_main_content');
         do_action('woocommerce_archive_description');
         ?>
     </header>
+
+
 <?php
+if (function_exists('wc_notice_count') && wc_notice_count() > 0) :
+    ?>
+
+    <div class="woocommerce-notices-shortcode woocommerce">
+        <?php wc_print_notices(); ?>
+    </div>
+<?php endif;
 if (woocommerce_product_loop()) {
     ?>
     <div class="row">

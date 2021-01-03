@@ -24,6 +24,14 @@ if (post_password_required()) {
     echo get_the_password_form(); // WPCS: XSS ok.
     return;
 }
+if (function_exists('wc_notice_count') && wc_notice_count() > 0) :
+    ?>
+
+    <div class="woocommerce-notices-shortcode woocommerce">
+        <?php wc_print_notices(); ?>
+    </div>
+<?php endif;
+
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class('row', $product); ?>>
 
@@ -43,18 +51,18 @@ if (post_password_required()) {
                 <div class="line"></div>
                 <p class="product-price"><?= wc_price(get_post_meta(get_the_ID(), '_price', true)); ?></p>
                 <? the_title('<a href="' . get_the_permalink() . '"><h6>', '</h6></a>') ?>
-                <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
-                    <? $average = $product->get_average_rating(); ?>
-                    <div class="ratings">
-                        <? for ($i = 1; $i <= 5; $i++): ?>
-                            <i class="fa fa-star" aria-hidden="true"
-                               style="<?= $average < $i ? 'color:#6d6d6d' : '' ?>"></i>
-                        <? endfor; ?>
-                    </div>
-                    <div class="review"><? // TODO ?>
-                        <a href="#">Write A Review</a>
-                    </div>
-                </div>
+                <!--                <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">-->
+                <!--                    --><? // $average = $product->get_average_rating(); ?>
+                <!--                    <div class="ratings">-->
+                <!--                        --><? // for ($i = 1; $i <= 5; $i++): ?>
+                <!--                            <i class="fa fa-star" aria-hidden="true"-->
+                <!--                               style="--><? //= $average < $i ? 'color:#6d6d6d' : '' ?><!--"></i>-->
+                <!--                        --><? // endfor; ?>
+                <!--                    </div>-->
+                <!--                    <div class="review">--><? // // TODO ?>
+                <!--                        <a href="#">Write A Review</a>-->
+                <!--                    </div>-->
+                <!--                </div>-->
                 <? $inStock = $product->get_stock_quantity() > 0; ?>
                 <p class="avaibility"><i class="fa fa-circle"
                                          style="<?= $inStock ? '' : 'color:red' ?>"></i> <?= $inStock ? __('En Stock') : __('Indisponible') ?>

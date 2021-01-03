@@ -41,22 +41,21 @@
 <!-- Search Wrapper Area End -->
 
 <!-- Cart Widget -->
-
-<div id="side-cart" class="sidenav">
-    <div class="search-close">
-        <i class="fa fa-close" aria-hidden="true" onclick="closeCart()"></i>
-    </div>
-    <!--    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-    <div>
-        <? if (is_active_sidebar('cart-sidebar')): ?>
+<? if (is_active_sidebar('cart-sidebar') && !is_cart() && !is_checkout()): ?>
+    <div id="side-cart" class="sidenav">
+        <div>
+            <span id="closeCart" onclick="handleCart()">X</span>
             <div class="shop_sidebar_area">
                 <? dynamic_sidebar('cart-sidebar'); ?>
             </div>
-        <? endif ?>
-    </div>
-</div>
-<button id="openCartButton" onclick="openCart()">open</button>
 
+        </div>
+    </div>
+    <? if (!WC()->cart->is_empty()): ?>
+        <span id="openCartButton" onclick="handleCart()"><img alt="Ouvrir le panier"
+                                                              src="<?= get_template_directory_uri() ?>/assets/img/core-img/cart.png"></span>
+    <? endif; ?>
+<? endif; ?>
 <!-- Cart Widget end -->
 
 <!-- ##### Main Content Wrapper Start ##### -->
@@ -66,7 +65,7 @@
     <div class="mobile-nav">
         <!-- Navbar Brand -->
         <div class="amado-navbar-brand">
-            <a href="<? home_url(); ?>"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.jpg" alt=""></a>
+            <a href="<?= home_url(); ?>"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.jpg" alt=""></a>
         </div>
         <!-- Navbar Toggler -->
         <div class="amado-navbar-toggler">
@@ -82,7 +81,7 @@
         </div>
         <!-- Logo -->
         <div class="logo">
-            <a href="<? home_url(); ?>"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.jpg" alt=""></a>
+            <a href="<?= home_url(); ?>"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.jpg" alt=""></a>
         </div>
         <!-- Amado Nav -->
         <?
@@ -98,20 +97,21 @@
         <!--            <a href="#" class="btn amado-btn active">New this week</a>-->
         <!--        </div>-->
         <!-- Cart Menu -->
-        <div class="cart-fav-search mb-100">
-            <a href="cart.html" class="cart-nav"><img
-                        src="https://colorlib.com/preview/theme/amado/img/core-img/cart.png" alt=""> Cart
-                <span>(0)</span></a>
-            <!--            <a href="#" class="fav-nav"><img src="https://colorlib.com/preview/theme/amado/img/core-img/favorites.png"-->
-            <!--                                             alt=""> Favourite</a>-->
-            <!--            <a href="#" class="search-nav"><img src="https://colorlib.com/preview/theme/amado/img/core-img/search.png"-->
-            <!--                                                alt=""> Search</a>-->
-        </div>
+        <!--        <div class="cart-fav-search mb-100">-->
+        <!--            <a href="cart.html" class="cart-nav"><img-->
+        <!--                        src="https://colorlib.com/preview/theme/amado/img/core-img/cart.png" alt=""> Cart-->
+        <!--                <span>(0)</span></a>-->
+        <!--            <a href="#" class="fav-nav"><img src="https://colorlib.com/preview/theme/amado/img/core-img/favorites.png"-->
+        <!--                                             alt=""> Favourite</a>-->
+        <!--            <a href="#" class="search-nav"><img src="https://colorlib.com/preview/theme/amado/img/core-img/search.png"-->
+        <!--                                                alt=""> Search</a>-->
+        <!--        </div>-->
         <!-- Social Button -->
-        <div class="social-info d-flex justify-content-between">
+        <div class="social-info d-flex">
             <!--            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>-->
-            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/oripamis/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/Oripamis-1720587664719126"><i class="fa fa-facebook"
+                                                                            aria-hidden="true"></i></a>
             <!--            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
         </div>
     </header>
